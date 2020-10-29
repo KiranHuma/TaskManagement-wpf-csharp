@@ -52,6 +52,7 @@ namespace TaskManagement
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  Labell.Content= DateTime.Now.ToString("MM-dd-yyyy ");
+           
             insert();
             gridview1();
         }
@@ -85,7 +86,7 @@ namespace TaskManagement
             }
             catch (Exception ex)
             {
-                Label6.Content = "Adding Failed";
+                statuslbl.Content = "Adding Failed";
             }
         }
         private void DataGridView1_SelectionChanged(object sender, SelectionChangedEventArgs e)

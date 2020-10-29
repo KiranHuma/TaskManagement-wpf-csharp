@@ -6,6 +6,24 @@
         xmlns:local="clr-namespace:TaskManagement"
         mc:Ignorable="d"
         Title="MainWindow" Height="667.863" Width="1118.736" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <!-- DataGrid style -->
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+        </Style>
+        <!-- DataGridColumnHeader style -->
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="DarkBlue"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="FontSize" Value="16" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Grid view."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid Margin="0,0,0.4,0" Height="668" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="iid" Width="344*"/>
@@ -25,12 +43,14 @@
         <Label x:Name="Labell" Content="Name" HorizontalAlignment="Left" Margin="90.2,272,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <Label x:Name="Label6" Content="ID" HorizontalAlignment="Left" Margin="90.2,215,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <DataGrid x:Name="dataGridView1" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="200" Margin="254,438,0,0" VerticalAlignment="Top" Width="835" SelectionChanged="DataGridView1_SelectionChanged" HorizontalGridLinesBrush="#FFE4D4D4" VerticalGridLinesBrush="#FFE4D4D4" AlternatingRowBackground="#FFE8EEF1" RowBackground="#FFE8EEF1" BorderBrush="#FF214252" Foreground="#FF214252" Background="#FFEBF0F3" AutomationProperties.IsRowHeader="True" SelectionMode="Single" RowDetailsVisibilityMode="Visible" AutomationProperties.IsColumnHeader="True" FontWeight="Bold" TextOptions.TextHintingMode="Animated" HeadersVisibility="Column"
-                 
+                 ColumnWidth="*"  Style="{DynamicResource DataGridStyle1}"
+              
             />
+
         <Button Content="Edit" Grid.Column="3" HorizontalAlignment="Left" Margin="301.8,385,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click" Height="30" RenderTransformOrigin="-0.779,-1.569" Background="#FF1F2191" Foreground="#FFF1EBEB" FontSize="16" FontWeight="Bold"/>
         <Button Content="Delete" Grid.Column="3" HorizontalAlignment="Left" Margin="204.8,385,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click" Height="30" RenderTransformOrigin="-0.779,-1.569" Background="#FFF40B35" Foreground="#FFF1EBEB" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="Label6_Copy" Content="Demo" HorizontalAlignment="Left" Margin="129.2,61,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="24" Foreground="#FFF0E7E7" FontWeight="Bold" Grid.ColumnSpan="2"/>
-        <Label x:Name="statuslbl" Content="" HorizontalAlignment="Left" Margin="272,381,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="statuslbl" Content="" HorizontalAlignment="Left" Margin="272,373,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
